@@ -2,7 +2,7 @@ const { Client, LocalAuth } = require('whatsapp-web.js');
 const qrcode = require('qrcode-terminal');
 
 // Nombre del grupo configurado
-const GRUPO_NOMBRE = "Señorita Monica 💚";
+const GRUPO_NOMBRE = "Nombre del Grupo";
 
 const client = new Client({
     authStrategy: new LocalAuth()
@@ -43,18 +43,7 @@ client.on('group_join', async (notification) => {
     if (chat.name === GRUPO_NOMBRE) {
         const newUser = notification.recipientIds[0]; // Obtener el usuario que se unió
 
-        const mensajeBienvenida = `
-🌟 *¡Bienvenido/a, @${newUser.replace('@c.us', '')}! 🎉*
-
-Antes de empezar a disfrutar, recordemos algunas reglas importantes:
-
-1️⃣ No suban material que pueda comprometerlos. ¡Cuidemos nuestra privacidad! 🔒  
-2️⃣ No compartan contenido que infrinja las normas de WhatsApp. Evitemos problemas. 🚫  
-3️⃣ Respetemos a todos los integrantes. Este es un espacio de buena onda. ✨  
-4️⃣ ¡No nos hacemos responsables de las consecuencias de participar en este grupo! 🤷‍♂️
-
-💃 *¡Venimos a bailar y a disfrutar de la señorita Mónica!* 🕺
-`;
+        const mensajeBienvenida = `Mensaje`;
 
         client.sendMessage(chat.id._serialized, mensajeBienvenida, { mentions: [newUser] });
         console.log(`Mensaje de bienvenida enviado a @${newUser.replace('@c.us', '')} en el grupo con nombre: ${GRUPO_NOMBRE}`);
